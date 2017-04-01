@@ -118,7 +118,6 @@ function main() {
       i++;
     });
 
-  
 };
 
 //loadScript('https://raw.githubusercontent.com/mihaifm/linq/master/linq.js', main);
