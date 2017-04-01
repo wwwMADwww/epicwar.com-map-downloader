@@ -76,8 +76,8 @@ function main() {
 
   function onDownloadSelectedClick() {
     Enumerable.from(controlSets).where(controlSets => controlSets.checkBox.checked).forEach(controlSet => {
-      // надо сделать загрузку файлов
-      console.log("download "+controlSet.link.href);
+      console.log(controlSet.link.href);
+      controlSet.link.click(); // "кликаем" по ссылке
     });
   };
 
@@ -112,13 +112,15 @@ function main() {
       controlSet.checkBox = createCheckBox("madCheckbox" + i, 1);
       // помещаем чекбокс в ячейку со ссылкой, потому что помещать в другую ячейку мне лень
       controlSet.listEntry.appendChild(controlSet.checkBox);
+      // аттрибут download для включения возможности скачивания файла по ссылке из элемента <a></a> 
+      controlSet.link.setAttribute('download','download');
       
       controlSets.push(controlSet);
       
       i++;
     });
 
+  
 };
 
-//loadScript('https://raw.githubusercontent.com/mihaifm/linq/master/linq.js', main);
 loadScript('https://raw.githubusercontent.com/mihaifm/linq/6d75e2310d7ed092977775ff3933ccff7a64643e/linq.js', main);
